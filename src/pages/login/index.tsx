@@ -7,13 +7,10 @@ export default function Index() {
   useLoad(() => {
     console.log('Page loaded.')
   })
-  const toLogin = function() {
-    console.log('xxx')
-  }
 
   return (
     <View className='index'>
-      <Text onClick={toLogin}>Hello world!</Text>
+      <Text>Hello world!</Text>
     </View>
   )
 }

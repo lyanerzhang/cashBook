@@ -7,7 +7,7 @@ function App({ children }: PropsWithChildren<any>) {
   useLaunch(() => {
     console.log('App launched.')
   })
-
+  console.log(children)
   // children 是将要会渲染的页面
   return children
 }
