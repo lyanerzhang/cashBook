@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 
 export const httpRequest = (
-  url, params, method, customHeader, isHeaderToken = true, isShowLoading = true
+  url, params, method, customHeader?, isHeaderToken = true
 ) => {
   let headerObject = {
     'content-type': 'application/json',
@@ -25,7 +25,7 @@ export const httpRequest = (
         } else {
           if (res.data.error.code === 'InvalidToken') {
             Taro.reLaunch({
-              url: '/pages/Login/login'
+              url: '/pages/login/index'
             })
           } else {
             reject(res.data)
