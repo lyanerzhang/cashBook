@@ -1,4 +1,4 @@
 export default definePageConfig({
   navigationBarTitleText: '登录',
-  disableScroll: true
+  navigationBarBackgroundColor: '#b0c4c4'
 })
