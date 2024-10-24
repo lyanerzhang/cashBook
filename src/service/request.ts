@@ -23,13 +23,13 @@ export const httpRequest = (
         if (res.data.success) {
           resolve(res.data)
         } else {
-          if (res.data.error.code === 'InvalidToken') {
-            Taro.reLaunch({
-              url: '/pages/login/index'
-            })
-          } else {
-            reject(res.data)
-          }
+          // if (res.data.error.code === 'InvalidToken') {
+          //   Taro.reLaunch({
+          //     url: '/pages/login/index'
+          //   })
+          // } else {
+          //   reject(res.data)
+          // }
         }
       },
       fail: (error) => {

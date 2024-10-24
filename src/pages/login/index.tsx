@@ -14,19 +14,38 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const onSubmit = (e) => {
     console.log(e)
-    if (username && password) {
-      handleLogin()
-    } else {
-      Taro.showToast({
-        title: '请输入账号和密码',
-        icon: 'none'
-      })
-    }
+    Taro.login({
+      success(res) {
+        if (res.code) {
+          Taro.getUserInfo({
+            success(userinfo) {
+              console.log('获取用户信息', userinfo)
+              handleLogin(res.code)
+            },
+            fail(usererror) {
+              console.log('获取用户信息失败', usererror)
+            }
+          })
+        }
+      },
+      fail(err) {
+        console.log('登录失败', err)
+      }
+    })
+    // if (username && password) {
+    //   handleLogin()
+    // } else {
+    //   Taro.showToast({
+    //     title: '请输入账号和密码',
+    //     icon: 'none'
+    //   })
+    // }
   }
-  const handleLogin = () => {
+  const handleLogin = (code) => {
     login({
       username,
-      password
+      password,
+      code
     }).then(res => {
       console.log(res)
     }).catch(err => {
