@@ -17,29 +17,22 @@ export default function Login() {
     Taro.login({
       success(res) {
         if (res.code) {
-          Taro.getUserInfo({
-            success(userinfo) {
-              console.log('获取用户信息', userinfo)
-              handleLogin(res.code)
-            },
-            fail(usererror) {
-              console.log('获取用户信息失败', usererror)
-            }
-          })
+          handleLogin(res.code)
+          // Taro.getUserInfo({
+          //   success(userinfo) {
+          //     console.log('获取用户信息', userinfo)
+          //     handleLogin(res.code)
+          //   },
+          //   fail(usererror) {
+          //     console.log('获取用户信息失败', usererror)
+          //   }
+          // })
         }
       },
       fail(err) {
         console.log('登录失败', err)
       }
     })
-    // if (username && password) {
-    //   handleLogin()
-    // } else {
-    //   Taro.showToast({
-    //     title: '请输入账号和密码',
-    //     icon: 'none'
-    //   })
-    // }
   }
   const handleLogin = (code) => {
     login({
@@ -53,41 +46,10 @@ export default function Login() {
     })
   }
 
-  const onReset = (e) => {
-    console.log(e)
-  }
-  const usernameChange = (e) => {
-    console.log(e)
-    setUsername(e)
-  }
-  const passwordChange = (e) => {
-    setPassword(e)
-  }
-
   return (
     <View className='login-wrap'>
-      <AtForm
-        onSubmit={onSubmit}
-        onReset={onReset}
-      >
-        <AtInput 
-          name='value'
-          title='用户名' 
-          type='text' 
-          placeholder='请填写'
-          value={username} 
-          onChange={usernameChange} 
-        />
-        <AtInput 
-          name='value' 
-          title='密码' 
-          type='text' 
-          placeholder='请填写'
-          value={password} 
-          onChange={passwordChange} 
-        />
-        <AtButton formType='submit'>登录</AtButton>
-      </AtForm>
+      xxxx
+      <AtButton onClick={onSubmit}>登录</AtButton>
     </View>
   )
 }
