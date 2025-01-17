@@ -13,7 +13,7 @@ export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const onSubmit = (e) => {
-    console.log(e)
+    console.log("eeeeee", e)
     Taro.login({
       success(res) {
         if (res.code) {
@@ -48,7 +48,6 @@ export default function Login() {
 
   return (
     <View className='login-wrap'>
-      xxxx
       <AtButton onClick={onSubmit}>登录</AtButton>
     </View>
   )
